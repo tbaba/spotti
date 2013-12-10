@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'omniauth-twitter'
 
+gem 'action_args'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
