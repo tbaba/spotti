@@ -37,6 +37,8 @@ end
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
+
+  gem 'byebug'
 end
 
 # Use ActiveModel has_secure_password
