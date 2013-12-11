@@ -1,0 +1,28 @@
+#new-user
+  %h2 新規登録
+
+  = form_for @user do |f|
+    - if @user.errors.any?
+      #error-explanation
+        %h2= "#{@user.errors.count}個のエラーが見つかりました"
+
+        %ul
+          - @user.errors.full_messages.each do |err|
+            %li= err
+
+    %dl
+      %dt ユーザー名
+      %dd= f.text_field :user_name
+
+      %dt メールアドレス
+      %dd= f.email_field :email
+
+      %dt ハンドルネーム
+      %dd= f.text_field :handle_name
+
+    = f.hidden_field :uid
+    = f.hidden_field :access_token
+    = f.hidden_field :access_token_secret
+
+    .action
+      = f.button '登録', type: 'submit'
