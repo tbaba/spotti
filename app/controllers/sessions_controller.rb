@@ -11,6 +11,12 @@ class SessionsController < ApplicationController
       uid: auth.uid
     }
 
-    redirect_to new_user_path
+    if user = User.find_by_uid(session[:auth][:uid])
+      session[:current_user] = user.id
+
+      redirect_to user, notice: 'ログインしました'
+    else
+      redirect_to new_user_path, notice: 'ユーザー登録をお願いします'
+    end
   end
 end

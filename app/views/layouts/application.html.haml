@@ -1,0 +1,32 @@
+!!!5
+%html{ lang: 'ja' }
+  %head
+    %title Spotti
+    %meta{ charset: 'utf-8' }
+    = stylesheet_link_tag 'application', media: 'all', data: { turbolinks_track: true }
+    = javascript_include_tag 'application', data: { turbolinks_track: true }
+    = csrf_meta_tags
+
+  %body
+    #header
+      %h1 Spotti
+      %p 場所を写真でつなぐアプリ
+
+      #user-info
+        - if user_signed_in?
+          Welcome, #{current_user.user_name}!
+          %nav
+            %ul
+              -#FIXME ログアウト機能を実装する
+              %li= link_to 'Logout', '#'
+        - else
+          %nav
+            %ul
+              %li= link_to 'Login', new_session_path
+
+    #contents
+      = yield
+
+    #footer
+      %p
+        Copyright 2013 Spotti.
