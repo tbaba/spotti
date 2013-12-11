@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session.delete :auth
+      session[:current_user] = @user.id
 
       redirect_to @user, notice: 'ユーザー登録が完了しました'
     else
