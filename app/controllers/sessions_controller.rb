@@ -19,4 +19,9 @@ class SessionsController < ApplicationController
       redirect_to new_user_path, notice: 'ユーザー登録をお願いします'
     end
   end
+
+  def destroy id
+    session.delete :current_user
+    redirect_to new_session_path, notice: 'ログアウトしました'
+  end
 end

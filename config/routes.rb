@@ -1,5 +1,5 @@
 Spotti::Application.routes.draw do
-  resources :sessions, only: [:new]
+  resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:show, :new, :create]
 
   get '/auth/:provider/callback' => 'sessions#create'
