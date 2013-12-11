@@ -1,2 +1,4 @@
 %div{ id: "#{controller_name}-#{action_name}" }
-  %h2= @user.user_name
+  %h2
+    %span.image= image_tag @user.avatar
+    %span.user_name= @user.user_name

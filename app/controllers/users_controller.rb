@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  permits :user_name, :handle_name, :email
+  permits :user_name, :handle_name, :email, :remote_avatar_url
 
   def show id
     @user = User.find id

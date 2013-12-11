@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       user_name: auth.extra.raw_info.screen_name,
       access_token: auth.credentials.token,
       access_token_secret: auth.credentials.secret,
-      uid: auth.uid
+      uid: auth.uid,
+      remote_avatar_url: auth.info.image
     }
 
     if user = User.find_by_uid(session[:auth][:uid])

@@ -20,6 +20,11 @@
       %dt ハンドルネーム
       %dd= f.text_field :handle_name
 
+      %dt プロフィール画像
+      %dd
+        = image_tag @user.remote_avatar_url
+        = f.hidden_field :remote_avatar_url
+
     = f.hidden_field :uid
     = f.hidden_field :access_token
     = f.hidden_field :access_token_secret
