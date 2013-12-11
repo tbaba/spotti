@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210123234) do
+ActiveRecord::Schema.define(version: 20131211050600) do
 
   create_table "users", force: true do |t|
     t.string   "user_name",           null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20131210123234) do
     t.string   "access_token_secret"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
 end
