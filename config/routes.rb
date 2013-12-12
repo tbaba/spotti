@@ -2,7 +2,9 @@ Spotti::Application.routes.draw do
   root 'home#index'
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:show, :new, :create]
+  resources :users, only: [:show, :new, :create] do
+    resources :spots, only: [:show, :new, :create]
+  end
 
   get '/auth/:provider/callback' => 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,21 @@
+#new-spot
+  %h2 写真の投稿
+
+  = form_for [@user, @spot] do |f|
+    - if @spot.errors.any?
+      #error-explanation
+        %h2= "#{@spot.errors.count}個のエラーが見つかりました"
+
+        %ul
+          - @spot.errors.full_messages.each do |err|
+            %li= err
+
+    %dl
+      %dt 写真
+      %dd= f.file_field :picture, accept: 'image/*;capture=camera'
+
+      %dt 説明
+      %dd= f.text_area :description
+
+    .action
+      = f.button '登録', type: 'submit'

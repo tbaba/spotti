@@ -1,0 +1,9 @@
+#spots-show
+  %h2
+    = image_tag @spot.picture
+
+  = simple_format @spot.description
+
+%nav
+  %ul
+    %li= link_to 'Back', @user
