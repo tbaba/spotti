@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131211133738) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "spots", force: true do |t|
     t.text     "description", null: false
     t.float    "lat"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20131211133738) do
     t.datetime "updated_at"
   end
 
-  add_index "spots", ["user_id"], name: "index_spots_on_user_id"
+  add_index "spots", ["user_id"], name: "index_spots_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "user_name",           null: false
